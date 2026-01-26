@@ -1,0 +1,1 @@
+- Deploy and check all selected open source solutions in parallel
