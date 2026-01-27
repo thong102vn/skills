@@ -1,0 +1,6 @@
+[submodule "skills"]
+	path = skills
+	url = https://github.com/anthropics/skills.git
+[submodule "plugins"]
+	path = plugins
+	url = https://github.com/anthropics/claude-code.git
