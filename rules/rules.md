@@ -7,8 +7,11 @@
 ## Always fix bug at root cause logic, not workaround.
 ## Use GitLab as default
 ## DON’T create OS-specific scripts like .sh files but use cross-platform script follow industry SDLC standards
-## In programming, don’t hardcode. Dynamic first, generalization first and configurable:
-### Multiple layers from general to specific
+## In code implementation:
+### Always follow the given plan: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to sumarize those at the end of implementation for user to review.
+### Don’t hardcode, dynamic first, generalization first and be configurable
+### Build primitives first for core/foundation.
+### Always generalize the specific business implementation by multiple layers from general to specific
 ### Identify shared and common components, functions, services to implement for reuse by different projects. Organize the correct structure follows Clean Architecture separation for those.
 ## The front-end (user interface) is decoupled from the back-end (data and logic), allowing the same content and services to be used across multiple channels (web, mobile, kiosks, etc.)
 ## Don't create duplicate files, code, or documents. Always search the current working folder for relevant logic to reuse or to improve or to replace it
@@ -19,10 +22,17 @@
 ## After finish your work, review it and give what should do next
 ## Always aware the task is for production level or not
 ## Never claim task done before finish all tests and review
-
+## For planning
+### Improve before giving solution: always reevaluate your solution to improve 2 times
+### Organize the plans into tree structure of document files
+### Separate test plan to separate file
+### No vendor lock-in
+### Identify key or hard parts to be explained and planed in more detail enough for other junior-level to follow in one-go to production release
+### Never re-invent the wheel: search for free self-host component/opensources as best alternatives over paid solutions with recommendation to choose which one
 ## For UI/UX design:
 ### Mobile-first
 ### Always choose the best font to support multiple languages
+### For Flutter project, analyze the live running app: widget trees, visual layout, runtime state by using Official Dart and Flutter MCP server
 
 ## For implementing the tests:
 ### Tests exactly what the human user see and interacts with. Always navigating via UI/Sidebar and using user-facing attributes as the first priority
@@ -36,4 +46,6 @@
 ### Use proper industry standard tools for checking code quality. Setup those tools if it not exists
 ## Your design has to support multiple languages. The backend has to support base-path. Database design must be in industry enterprise-grade.
 
-*** CRITICAL: Always review these rules when you finish your task to improve your work ***
+# POST-task phase:
+## Always re-evaluate your work for remain limitations, issues, tasks
+## Improve your work again if there is no need to ask user
