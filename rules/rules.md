@@ -9,6 +9,7 @@
 ## DON’T create OS-specific scripts like .sh files but use cross-platform script follow industry SDLC standards
 ## Never re-invent the wheel: search for free self-host component/opensources as best alternatives over building from scratch or paying for expensive SaaS
 ## The front-end (user interface) is decoupled from the back-end (data and logic), allowing the same content and services to be used across multiple channels (web, mobile, kiosks, etc.)
+## Convention-over-configuration — the tenant should never have to touch configuration
 ## Don't create duplicate files, code, or documents. Always search the current working folders for relevant logic to reuse or to improve or to replace it
 ## Always use venv for Python scripts. Check existing venv before creating new
 ## Use Helm for 3rd-party service/package and Kustomize for our internal service. Docker build must have Tagging: Every build gets a unique tag (e.g., v1.0.1)
@@ -25,7 +26,7 @@
 ## For database design: Schema-as-Code / Migrations, not in planning document file
 
 ## For code implementation:
-### Always follow the given plan: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to sumarize those at the end of implementation for user to review.
+### Always follow the given plan: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
 ### Don’t hardcode but dynamic first, generalization first and be configurable
 ### Always review your implementation against side effects, KISS, SOLID, DRY, CLEAN and improve code again
 
