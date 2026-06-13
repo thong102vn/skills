@@ -23,16 +23,20 @@
 ## For local search, search folders you are managing only
 ## Your design and implementation has to be general and flexible to resist against requirement changes and extentions
 ## Never auto git commit the changes by yourself
+## Always include reference IDs from user stories or wireframe documents when you claim a task done
 ## For database design: Schema-as-Code / Migrations, not in planning document file
 
 ## For code implementation:
-### Always follow the given plan: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
-### Don’t hardcode but dynamic first, generalization first and be configurable
+### Firstly, understand source code structure for where are reusable core/foundation and shared packages
+### Always follow the given plan or design documents: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
+### Decompose to vertical-agnostic primitives for reusable core/foundation.
+### Don’t hardcode but dynamic first, generalize and standardize code and API implementation first and convention-over-configuration
+
 ### Always review your implementation against side effects, KISS, SOLID, DRY, CLEAN and improve code again
 
 ## For planning
 
-### Build primitives first for core/foundation.
+### Decompose to vertical-agnostic primitives for reusable core/foundation.
 ### Always generalize the specific business implementation by multiple layers from general to specific
 ### Decompose shared and common components, functions, services to implement for reusable by different projects. Organize the correct structure follows Clean Architecture separation for those.
 ### Separate test plan to separate file
