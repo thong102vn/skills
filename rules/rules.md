@@ -23,8 +23,12 @@
 ## For local search, search folders you are managing only
 ## Your design and implementation has to be general and flexible to resist against requirement changes and extentions
 ## Never auto git commit the changes by yourself
+## Every data binding, data parsing, data rendering, avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
 ## Always include reference IDs from user stories or wireframe documents when you claim a task done
-## For database design: Schema-as-Code / Migrations, not in planning document file
+## For every bug fix, give short phrase describe the best industry coding rules, best practices to avoid that bug again
+## For database design: 
+### Schema-as-Code / Migrations, not in planning document file. 
+### Database schema design: DYNAMIC-FIRST, not a hand-curated column set follow pattern = **medallion + document-relational hybrid**
 
 ## For code implementation:
 ### Firstly, understand source code structure for where are reusable core/foundation and shared packages
@@ -34,7 +38,7 @@
 
 ### Always review your implementation against side effects, KISS, SOLID, DRY, CLEAN and improve code again
 
-## For planning
+## For design and planning
 
 ### Decompose to vertical-agnostic primitives for reusable core/foundation.
 ### Always generalize the specific business implementation by multiple layers from general to specific
