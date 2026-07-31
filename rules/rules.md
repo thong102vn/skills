@@ -21,10 +21,12 @@
 ## For local search, search folders you are managing only
 ## Your design and implementation has to be general and flexible to resist against requirement changes and extentions
 ## Never auto git commit the changes by yourself
+## The implementation must follow canonical design, never diverge. Ask user for any gaps canonical design
 ## For every data binding, data parsing, data rendering: avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
 ## Always include reference IDs from user stories or wireframe documents when you claim a task done
 ## For every bug fix, give short phrase describe the best industry coding rules, best practices to avoid that bug again
-## Presence isn't integrity; a title/decision is a pointer, not proof; and every fact you write lives in more than one place in this doc
+## Structural review enumerates nodes. Every defect lives in an edge.
+## Presence isn't integrity; a title/decision is a pointer, not proof; and every fact you write lives in more than one place in this doc.  Amendments rewrite the body; they never accrete beneath it
 ## For database design: 
 ### Schema-as-Code / Migrations, not in planning document file. 
 ### Database schema design: DYNAMIC-FIRST, not a hand-curated column set follow pattern = **medallion + document-relational hybrid**
@@ -55,8 +57,16 @@
 ### Create  World-class UX usability protocol (5–8 users per persona per wave) + visual design-language requirements
 ### Design Checklist follow industry modern UI/UX best practices: UI design, Responsiveness, Typography, Icons, Interactive Elements, Centralized Theme, Color Scheme Generation, Component Themes, Custom Fonts
 UI/UX audit needs:
-
-  For every visible widget on a screen (Nielsen heuristic #1, "match between system and real
+1. Intent grouping (edge 5) — group every element by the user question it answers. Two surfaces answering one question, differing only by a classification the system could compute,
+  are one surface with branches. This is the only item that would have caught the four-section page.
+  2. Shared canvas (edge 5) — any repeated heavy widget (map, camera, scanner) is one instance the fields write into, never one per field.
+  3. Input economics (edge 6) — count keystrokes, taps and screen-switches to the goal, and set a budget. "Works" and "is usable one-handed in rain" are different tests.
+  4. Every promise has a receipt (edges 1, 2) — after any action a user waits on: acknowledgement, expected time, and an honest re-promise if it slips. Silence is a defect, not a
+  neutral state.
+  5. Two-actor surfaces need two screens (edge 2) — every handover, approval and reconciliation is drawn from both sides. The wrq_ finding is exactly this.
+  6. Recovery and undo (edge 6) — for every destructive or time-pressured action, what does a mis-tap cost and how is it reversed?
+  
+For every visible widget on a screen (Nielsen heuristic #1, "match between system and real
   world"):
     a. List the user's primary task on this screen ("see today's run")
     b. For each visible widget, ask: does it answer that task RIGHT NOW? Is it overlaped?
