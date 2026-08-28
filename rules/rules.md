@@ -20,7 +20,7 @@
 - Always search only folders you are managing
 - Organize big tasks to do in parallel
 - Never auto git commit the changes by yourself
-- The implementation must follow canonical design, never diverge. Ask user for any gaps canonical design
+- The implementation must follow canonical design, never diverge. A capability canon declares but this build does not execute stays an open gap owed to the user — degrading honestly satisfies the contract, never the design; surface it, never classify it closed
 - Before asking the user a question, reporting a finding, or escalating a gap: prove the answer is not already in canon, the task ledger, or the codebase, and cite what was searched. A question the repo already answers is a defect, not a clarification
 - For every data binding, data parsing, data rendering: avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
 - For a SPECIFICATION the split axis is artifact TYPE — schema, prose, DDL, wireframe, seed — so N greps of one type are one reading: search by the spec's own join key, its reference ID, never by a noun.
