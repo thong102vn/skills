@@ -5,6 +5,8 @@
 ## Core — these bind every lap, whatever the task
 
 - Always fix bug at root cause logic, not workaround.
+- AN EDIT IS REWORK UNLESS ITS SOURCE IS DERIVED, ITS SURFACE IS REACHED, AND ITS SCOPE IS THE CLASS — derive every fact from its SSOT instead of transcribing it, reach the surface as an operator on the running build before editing it, and fix the class rather than the instance
+- Derive every expected value from the artifact that owns it — never from the system under test; if the build can change your expectation, it is not a test.
 - Use GitLab as default
 - DON’T create OS-specific scripts like .sh files but use cross-platform script follow industry SDLC standards
 - Never re-invent the wheel. Search FIRST — the working folders for logic to reuse/improve/replace, then free/self-host opensource — before writing anything. Never create duplicate, fragment or temporary files/documents/code
@@ -23,7 +25,7 @@
 - The implementation must follow canonical design, never diverge. A capability canon declares but this build does not execute stays an open gap owed to the user — degrading honestly satisfies the contract, never the design; surface it, never classify it closed
 - Before asking the user a question, reporting a finding, or escalating a gap: prove the answer is not already in canon, the task ledger, or the codebase, and cite what was searched. A question the repo already answers is a defect, not a clarification
 - For every data binding, data parsing, data rendering: avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
-- For a SPECIFICATION the split axis is artifact TYPE — schema, prose, DDL, wireframe, seed — so N greps of one type are one reading: search by the spec's own join key, its reference ID, never by a noun.
+- For a SPECIFICATION the split axis is artifact TYPE — schema, prose, DDL, wireframe, seed — so N greps of one type are one reading: map which reference-ID families each file carries BEFORE the first content grep, then search by the owning family's ID and never by a noun — a hit set narrower than the corpus, or a file carrying no ID at all, is the unread remainder, never completion.
 - Always include reference IDs from user stories or wireframe documents when you claim a task done
 - Structural review enumerates nodes. Every defect lives in an edge.
 - Amendments rewrite the body; they never accrete beneath it
@@ -31,8 +33,9 @@
 - Your design has to support multiple languages. The backend has to support base-path. Database design must be in industry enterprise-grade.
 - A degraded string fails loud — a missing key, label or copy renders as a visible failure, never as plausible text that reads like a real answer
 - An edit matches the file's existing bytes (EOL, indent, trailing newline); a size delta larger than the edit is a defect, not formatting
-- Final output: lead with the verdict in one line. Then group every unfinished item under a `##<user-facing issue>` and `### <owner>` heading as `- [ ]` todos, each naming the blocking evidence and what it unblocks. Never mix owners in one list; never state a todo without the probe that proves it.
+- Output format: lead with the verdict in one line. Then group every unfinished item under a `##<user-facing issue>` and `### <owner>` heading as `- [ ]` todos, each naming the blocking evidence and what it unblocks.
 - For Android device, DON'T pipe 'adb logcat' outputs directly but through head/grep/python -c instead
+- Update self-improve.md in your working directory for your self-improvement. Scope: lessons NOT already an instance of loop.md's five laws or a line here; before adding a rule anywhere, name the existing rule that should have caught the incident — absent, unmechanized and wrong have three different fixes, and only the first is a new sentence
 
 ## For database design: 
 - Schema-as-Code / Migrations, not in planning document file. 
@@ -108,6 +111,7 @@ For every visible widget on a screen (Nielsen heuristic #1, "match between syste
 - Always use User-First Locators. Avoid nth=-1 nor .last
 - Dynamically discover all elements, links for each page and map each with know feature to run tests and catch unknown features in final report. Perform deep element reconnaissance on each result page
 - Never implement mock response, mock data, fallback or never skip for what the test is expected to test
+- Don't implement visual regression
 
 - If a test creates data, ensure it's either cleaned up or the environment is reset between runs (though idempotent data creation is preferred).
 
