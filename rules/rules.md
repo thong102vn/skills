@@ -3,14 +3,16 @@
 # Sumarize your understanding about these CRITICAL RULEs for confirmation before you start processing user prompt:
 
 ## Core — these bind every lap, whatever the task
-
+- Start new subagent with its proper brief context to save tokens - not inherit entire context from parent.
 - Always fix bug at root cause logic, not workaround.
 - AN EDIT IS REWORK UNLESS ITS SOURCE IS DERIVED, ITS SURFACE IS REACHED, AND ITS SCOPE IS THE CLASS — derive every fact from its SSOT instead of transcribing it, reach the surface as an operator on the running build before editing it, and fix the class rather than the instance
 - Derive every expected value from the artifact that owns it — never from the system under test; if the build can change your expectation, it is not a test.
+- Never auto implement unit tests
 - Use GitLab as default
 - DON’T create OS-specific scripts like .sh files but use cross-platform script follow industry SDLC standards
-- Never re-invent the wheel. Search FIRST — the working folders for logic to reuse/improve/replace, then free/self-host opensource — before writing anything. Never create duplicate, fragment or temporary files/documents/code
-- The front-end (user interface) is decoupled from the back-end (data and logic), allowing the same content and services to be used across multiple channels (web, mobile, kiosks, etc.)
+- Never re-invent the wheel. Search FIRST — the working folders for logic to reuse/improve/replace, then free/self-host opensource — before writing anything. 
+- Never create duplicate, fragment or temporary files/documents/code in git repo
+- The front-end (user interface) is decoupled from the back-end (data and logic)
 - DECOUPLE TEST — apply before writing any predicate, computation or default the backend also owns: would a second channel (mobile app, kiosk, partner API) have to reimplement this to behave correctly? If yes it belongs in the backend. MONEY RULES AND ACCESS RULES ARE NEVER MIRRORED — a mirrored money rule is a wrong price, a mirrored access rule is a leak
 - Convention-over-configuration — the tenant should never have to touch configuration
 - Always use venv for Python scripts. Check existing venv before creating new
@@ -19,7 +21,7 @@
 - When you debug using the browser, always try to use your previous tabs or close old tabs``
 - Always aware the task is for production level or not
 - Never claim task done before finish all tests and review
-- Always search only folders you are managing
+- Search only folders you are managing
 - Organize big tasks to do in parallel
 - Never auto git commit the changes by yourself
 - The implementation must follow canonical design, never diverge. A capability canon declares but this build does not execute stays an open gap owed to the user — degrading honestly satisfies the contract, never the design; surface it, never classify it closed
@@ -33,7 +35,7 @@
 - Your design has to support multiple languages. The backend has to support base-path. Database design must be in industry enterprise-grade.
 - A degraded string fails loud — a missing key, label or copy renders as a visible failure, never as plausible text that reads like a real answer
 - An edit matches the file's existing bytes (EOL, indent, trailing newline); a size delta larger than the edit is a defect, not formatting
-- Output format: lead with the verdict in one line. Then group every unfinished item under a `##<user-facing issue>` and `### <owner>` heading as `- [ ]` todos, each naming the blocking evidence and what it unblocks.
+- Output format: lead with the verdict in one line. Then group every unfinished item under a `## <user-facing issue>` and `### <owner>` heading as `- [ ]` todos, each naming the blocking evidence and what it unblocks.
 - For Android device, DON'T pipe 'adb logcat' outputs directly but through head/grep/python -c instead
 - Update self-improve.md in your working directory for your self-improvement. Scope: lessons NOT already an instance of loop.md's five laws or a line here; before adding a rule anywhere, name the existing rule that should have caught the incident — absent, unmechanized and wrong have three different fixes, and only the first is a new sentence
 
@@ -42,6 +44,7 @@
 - Database schema design: DYNAMIC-FIRST, not a hand-curated column set follow pattern = **medallion + document-relational hybrid**
 
 ## For code implementation:
+- Decompose to vertical-agnostic primitives reusable by different projects. A new exported primitive names the consumers outside its own package; none ⇒ it is app code, not a primitive — generalize from general to specific, in Clean Architecture separation
 - Firstly, understand source code structure for where are reusable core/foundation and shared packages
 - Always follow the given plan or design documents: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
 - Don’t hardcode but dynamic first, generalize and standardize code and API implementation first and convention-over-configuration
@@ -62,7 +65,7 @@
 - Always choose the best font to support multiple languages
 - Create  World-class UX usability protocol (5–8 users per persona per wave) + visual design-language requirements
 - Design Checklist follow industry modern UI/UX best practices: UI design, Responsiveness, Typography, Icons, Interactive Elements, Centralized Theme, Color Scheme Generation, Component Themes, Custom Fonts
-UI/UX audit needs:
+UI/UX audit needs to check the fully composed screen—not isolated components—across realistic data states:
 1. Intent grouping (edge 5) — group every element by the user question it answers. Two surfaces answering one question, differing only by a classification the system could compute,
   are one surface with branches. This is the only item that would have caught the four-section page.
   2. Shared canvas (edge 5) — any repeated heavy widget (map, camera, scanner) is one instance the fields write into, never one per field.
@@ -107,7 +110,8 @@ For every visible widget on a screen (Nielsen heuristic #1, "match between syste
 - For Flutter project, analyze the live running app: widget trees, visual layout, runtime state by using Flutter Agent Gateway MCP or Official Dart and Flutter MCP server
 
 ## For implementing the tests:
-- Tests exactly what the human user see and interacts with. Always navigating via UI/Sidebar and using user-facing attributes as the first priority
+- Tests exactly what the human user see and interacts with. 
+- Always navigating via UI/Sidebar and using user-facing attributes as the first priority
 - Always use User-First Locators. Avoid nth=-1 nor .last
 - Dynamically discover all elements, links for each page and map each with know feature to run tests and catch unknown features in final report. Perform deep element reconnaissance on each result page
 - Never implement mock response, mock data, fallback or never skip for what the test is expected to test
