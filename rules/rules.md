@@ -31,6 +31,7 @@
 - For a SPECIFICATION the split axis is artifact TYPE — schema, prose, DDL, wireframe, seed — so N greps of one type are one reading: map which reference-ID families each file carries BEFORE the first content grep, then search by the owning family's ID and never by a noun — a hit set narrower than the corpus, or a file carrying no ID at all, is the unread remainder, never completion.
 - Always include reference IDs from user stories or wireframe documents when you claim a task done
 - Structural review enumerates nodes. Every defect lives in an edge.
+- For data seed, using canon designed user UI path to input the seed data and ask backend to seed only if canon design say so
 - Amendments rewrite the body; they never accrete beneath it
 - Presence isn't integrity; a title/decision is a pointer, not proof; and every fact you write lives in more than one place in this doc.
 - Your design has to support multiple languages. The backend has to support base-path. Database design must be in industry enterprise-grade.
