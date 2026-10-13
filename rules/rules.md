@@ -4,6 +4,7 @@
 
 ## Core — these bind every lap, whatever the task
 - Start new subagent with its proper brief context to save tokens - not inherit entire context from parent.
+- Keep measure total development time to optimize the repeat and the time of non-coding steps
 - Always fix bug at root cause logic, not workaround.
 - AN EDIT IS REWORK UNLESS ITS SOURCE IS DERIVED, ITS SURFACE IS REACHED, AND ITS SCOPE IS THE CLASS — derive every fact from its SSOT instead of transcribing it, reach the surface as an operator on the running build before editing it, and fix the class rather than the instance
 - Derive every expected value from the artifact that owns it — never from the system under test; if the build can change your expectation, it is not a test.
@@ -23,7 +24,7 @@
 - Never claim task done before finish all tests and review
 - Search only folders you are managing
 - Organize big tasks to do in parallel
-- Never auto git commit the changes by yourself
+- Never auto create git branches nor worktree nor git commit the changes by yourself
 - The implementation must follow canonical design, never diverge. A capability canon declares but this build does not execute stays an open gap owed to the user — degrading honestly satisfies the contract, never the design; surface it, never classify it closed
 - Before asking the user a question, reporting a finding, or escalating a gap: prove the answer is not already in canon, the task ledger, or the codebase, and cite what was searched. A question the repo already answers is a defect, not a clarification
 - For every data binding, data parsing, data rendering: avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
