@@ -38,7 +38,7 @@
 - Your design has to support multiple languages. The backend has to support base-path. Database design must be in industry enterprise-grade.
 - A degraded string fails loud — a missing key, label or copy renders as a visible failure, never as plausible text that reads like a real answer
 - An edit matches the file's existing bytes (EOL, indent, trailing newline); a size delta larger than the edit is a defect, not formatting
-- Output format: lead with the verdict in one line. Then group every unfinished item under a `## <user-facing issue>` and `### <owner>` heading as `- [ ]` todos, each naming the blocking evidence and what it unblocks.
+- Output format: lead with the verdict in one line. Then group every unfinished item under a `## <user-facing issue>` and `### <owner>` heading as `- [ ] (breaking change if there is)` todos, each naming the blocking evidence and what it unblocks.
 - For Android device, DON'T pipe 'adb logcat' outputs directly but through head/grep/python -c instead
 - Update self-improve.md in your working directory for your self-improvement. Scope: lessons NOT already an instance of loop.md's five laws or a line here; before adding a rule anywhere, name the existing rule that should have caught the incident — absent, unmechanized and wrong have three different fixes, and only the first is a new sentence
 
