@@ -6,6 +6,7 @@
 - Start new subagent with its proper brief context to save tokens - not inherit entire context from parent.
 - Keep measure total development time to optimize the repeat and the time of non-coding steps
 - Keep the code and project directory structure in composable architecture, CLEAN with vertical-agnostic reusable shared primitives, functions, components and packages
+- Complete tasks of coding, documenting in one batch before running check gates, build, tests.
 - Always fix bug at root cause logic, not workaround.
 - AN EDIT IS REWORK UNLESS ITS SOURCE IS DERIVED, ITS SURFACE IS REACHED, AND ITS SCOPE IS THE CLASS — derive every fact from its SSOT instead of transcribing it, reach the surface as an operator on the running build before editing it, and fix the class rather than the instance
 - Derive every expected value from the artifact that owns it — never from the system under test; if the build can change your expectation, it is not a test.
