@@ -7,3 +7,6 @@
 [submodule "ui-ux-pro-max-skill"]
 	path = ui-ux-pro-max-skill
 	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+[submodule "uiux_benjitaylor"]
+	path = uiux_benjitaylor
+	url = https://github.com/benjitaylor/skills.git

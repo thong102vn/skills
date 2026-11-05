@@ -26,7 +26,7 @@
 - Never claim task done before finish all tests and review
 - Search only folders you are managing
 - Organize big tasks to do in parallel
-- Never auto create git branches nor worktree nor git commit the changes by yourself
+- Never auto create git branches nor worktree.
 - The implementation must follow canonical design, never diverge. A capability canon declares but this build does not execute stays an open gap owed to the user — degrading honestly satisfies the contract, never the design; surface it, never classify it closed
 - Before asking the user a question, reporting a finding, or escalating a gap: prove the answer is not already in canon, the task ledger, or the codebase, and cite what was searched. A question the repo already answers is a defect, not a clarification
 - For every data binding, data parsing, data rendering: avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
@@ -35,7 +35,7 @@
 - Structural review enumerates nodes. Every defect lives in an edge.
 - For data seed, using canon designed user UI path to input the seed data and ask backend to seed only if canon design say so
 - Amendments rewrite the body; they never accrete beneath it
-- Presence isn't integrity; a title/decision is a pointer, not proof; and every fact you write lives in more than one place in this doc.
+- Presence isn't integrity; a title, registry row or unread citation is a pointer, not proof; and every fact you write lives in more than one place in this doc
 - Your design has to support multiple languages. The backend has to support base-path. Database design must be in industry enterprise-grade.
 - A degraded string fails loud — a missing key, label or copy renders as a visible failure, never as plausible text that reads like a real answer
 - An edit matches the file's existing bytes (EOL, indent, trailing newline); a size delta larger than the edit is a defect, not formatting
@@ -43,12 +43,14 @@
 - For Android device, DON'T pipe 'adb logcat' outputs directly but through head/grep/python -c instead
 - Update self-improve.md in your working directory for your self-improvement. Scope: lessons NOT already an instance of loop.md's five laws or a line here; before adding a rule anywhere, name the existing rule that should have caught the incident — absent, unmechanized and wrong have three different fixes, and only the first is a new sentence
 
-## For database design: 
+## For database design:
 - Schema-as-Code / Migrations, not in planning document file. 
 - Database schema design: DYNAMIC-FIRST, not a hand-curated column set follow pattern = **medallion + document-relational hybrid**
+- Make the schema hold only facts you own. Anything an outside party decides or that you haven't verified goes in rows, never in columns or constraints.
 
 ## For code implementation:
-- Decompose to vertical-agnostic primitives reusable by different projects. A new exported primitive names the consumers outside its own package; none ⇒ it is app code, not a primitive — generalize from general to specific, in Clean Architecture separation
+- Decompose to vertical-agnostic primitives reusable by different projects.
+— generalize from general to specific, in Clean Architecture separation
 - Firstly, understand source code structure for where are reusable core/foundation and shared packages
 - Always follow the given plan or design documents: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
 - Don’t hardcode but dynamic first, generalize and standardize code and API implementation first and convention-over-configuration
@@ -56,7 +58,8 @@
 
 ## For design and planning
 
-- Decompose to vertical-agnostic primitives reusable by different projects. A new exported primitive names the consumers outside its own package; none ⇒ it is app code, not a primitive — generalize from general to specific, in Clean Architecture separation. Design and implementation must stay flexible against requirement changes and extensions
+- Decompose to vertical-agnostic primitives reusable by different projects.
+— generalize from general to specific, in Clean Architecture separation. Design and implementation must stay flexible against requirement changes and extensions
 - Separate test plan to separate file
 - No vendor lock-in. Architecture must be easy to re-point at the best of multiple providers/opensources, since each has a weakness (price, performance, accuracy, time-to-build)
 - The artifact is the DESIGN/PLAN document — never code comments. Explain key or hard parts, cite reference IDs, and name the bug-class rule that prevents a fix recurring, IN the plan, the task/ledger row or the report to the user. There is no explanation obligation that a source file satisfies. Detailed enough for a junior to follow in one go to production release — in that document, not in the code.
