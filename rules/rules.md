@@ -13,7 +13,7 @@
 - Never auto implement unit tests
 - Use GitLab as default
 - DON’T create OS-specific scripts like .sh files but use cross-platform script follow industry SDLC standards
-- Never re-invent the wheel. Search FIRST — the working folders for logic to reuse/improve/replace, then free/self-host opensource — before writing anything. 
+- Never re-invent the wheel. Search FIRST — the working folders for logic to reuse/improve/replace, then free/self-host opensource or its components, code not neccessary be a full product — before writing anything. 
 - Never create duplicate, fragment or temporary files/documents/code in git repo
 - The front-end (user interface) is decoupled from the back-end (data and logic)
 - DECOUPLE TEST — apply before writing any predicate, computation or default the backend also owns: would a second channel (mobile app, kiosk, partner API) have to reimplement this to behave correctly? If yes it belongs in the backend. MONEY RULES AND ACCESS RULES ARE NEVER MIRRORED — a mirrored money rule is a wrong price, a mirrored access rule is a leak
@@ -27,8 +27,10 @@
 - Search only folders you are managing
 - Organize big tasks to do in parallel
 - Never auto create git branches nor worktree.
+- Don’t trust the canon design since it may not give the best solution or has defects. Judge them by your deep expertise and ask user for better solution
 - The implementation must follow canonical design, never diverge. A capability canon declares but this build does not execute stays an open gap owed to the user — degrading honestly satisfies the contract, never the design; surface it, never classify it closed
 - Before asking the user a question, reporting a finding, or escalating a gap: prove the answer is not already in canon, the task ledger, or the codebase, and cite what was searched. A question the repo already answers is a defect, not a clarification
+- Always give your guess or recommendation when asking a question 
 - For every data binding, data parsing, data rendering: avoid hand-curated names/fields list but DYNAMIC-FIRST, follow pattern **medallion**
 - For a SPECIFICATION the split axis is artifact TYPE — schema, prose, DDL, wireframe, seed — so N greps of one type are one reading: map which reference-ID families each file carries BEFORE the first content grep, then search by the owning family's ID and never by a noun — a hit set narrower than the corpus, or a file carrying no ID at all, is the unread remainder, never completion.
 - Always include reference IDs from user stories or wireframe documents when you claim a task done
@@ -41,15 +43,16 @@
 - An edit matches the file's existing bytes (EOL, indent, trailing newline); a size delta larger than the edit is a defect, not formatting
 - Output format: lead with the verdict in one line. Then group every unfinished item under a `## <user-facing issue>` and `### <owner>` heading as `- [ ] (breaking change if there is)` todos, each naming the blocking evidence and what it unblocks.
 - For Android device, DON'T pipe 'adb logcat' outputs directly but through head/grep/python -c instead
-- Update self-improve.md in your working directory for your self-improvement. Scope: lessons NOT already an instance of loop.md's five laws or a line here; before adding a rule anywhere, name the existing rule that should have caught the incident — absent, unmechanized and wrong have three different fixes, and only the first is a new sentence
+- Update self-improve.md in your working directory for your self-improvement with single line rule and keep the file smallest. Scope: lessons NOT already an instance of loop.md's five laws or a line here; before adding a rule anywhere, name the existing rule that should have caught the incident — absent, unmechanized and wrong have three different fixes, and only the first is a new sentence
 
 ## For database design:
 - Schema-as-Code / Migrations, not in planning document file. 
+- one migration per prod release, edited in place while the release is unshipped
 - Database schema design: DYNAMIC-FIRST, not a hand-curated column set follow pattern = **medallion + document-relational hybrid**
 - Make the schema hold only facts you own. Anything an outside party decides or that you haven't verified goes in rows, never in columns or constraints.
 
 ## For code implementation:
-- Decompose to vertical-agnostic primitives reusable by different projects.
+- Implement once and reuse everywhere. Decompose to vertical-agnostic primitives reusable by different projects.
 — generalize from general to specific, in Clean Architecture separation
 - Firstly, understand source code structure for where are reusable core/foundation and shared packages
 - Always follow the given plan or design documents: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
@@ -67,10 +70,9 @@
 - Re-evaluate twice against side effects, limitations, gaps and KISS/SOLID/DRY/CLEAN — then improve
 
 
-## For UI/UX design  *(read when the lap touches a UI surface)*
+## For UI/UX design and implementation
 - Mobile-first
 - Always choose the best font to support multiple languages
-- Create  World-class UX usability protocol (5–8 users per persona per wave) + visual design-language requirements
 - Design Checklist follow industry modern UI/UX best practices: UI design, Responsiveness, Typography, Icons, Interactive Elements, Centralized Theme, Color Scheme Generation, Component Themes, Custom Fonts
 UI/UX audit needs to check the fully composed screen—not isolated components—across realistic data states:
 1. Intent grouping (edge 5) — group every element by the user question it answers. Two surfaces answering one question, differing only by a classification the system could compute,
