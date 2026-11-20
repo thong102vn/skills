@@ -52,7 +52,7 @@
 - Make the schema hold only facts you own. Anything an outside party decides or that you haven't verified goes in rows, never in columns or constraints.
 
 ## For code implementation:
-- Implement once and reuse everywhere. Decompose to vertical-agnostic primitives reusable by different projects.
+- Implement once and reuse everywhere. Rename test: if swapping the business (shop → clinic → trucking) or the network (Zalo → Messenger) changes any kernel type, table, API, access rule or core UI string, the design is not generic. A domain word may appear only in an app's or adapter's declaration.
 — generalize from general to specific, in Clean Architecture separation
 - Firstly, understand source code structure for where are reusable core/foundation and shared packages
 - Always follow the given plan or design documents: for anything you implement differ from the plan, think if your solution is better otherwise change back to plan's. Any implementation is differ from the plan, you have to summarize those at the end for user to review.
@@ -61,7 +61,7 @@
 
 ## For design and planning
 
-- Decompose to vertical-agnostic primitives reusable by different projects.
+- Rename test: if swapping the business (shop → clinic → trucking) or the network (Zalo → Messenger) changes any kernel type, table, API, access rule or core UI string, the design is not generic. A domain word may appear only in an app's or adapter's declaration.
 — generalize from general to specific, in Clean Architecture separation. Design and implementation must stay flexible against requirement changes and extensions
 - Separate test plan to separate file
 - No vendor lock-in. Architecture must be easy to re-point at the best of multiple providers/opensources, since each has a weakness (price, performance, accuracy, time-to-build)
